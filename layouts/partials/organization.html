@@ -6,12 +6,78 @@
     <h2>{{ $organization.title }}</h2>
   </div>
 
+  <!-- <div class="section-content">
+    {{- if $organization.description }}
+    <div class="description markdown">
+      {{ $organization.description | markdownify | safeHTML }}
+    </div>
+    {{- end }}
+  </div> -->
+
   <div class="section-content">
     {{- if $organization.description }}
     <div class="description markdown">
       {{ $organization.description | markdownify | safeHTML }}
     </div>
     {{- end }}
+
+    {{- if $organization.items }}
+    <div class="items">
+      {{- range $item := $organization.items }}
+      <div class="item">
+
+        {{- if $item.organization }}
+        <div class="row">
+          <div class="company">
+            {{- if $item.link }}
+            <a href="{{ $item.link }}" target="_blank">{{ $item.organization | safeHTML }}</a>
+            {{- else }}
+            <span>{{ $item.organization | safeHTML }}</span>
+            {{- end }}
+            {{- if $item.tags }}
+            <small>[{{ $item.tags }}]</small>
+            {{- end }}
+          </div>
+          <div class="date">
+            <span>{{ $item.date }}</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="role">
+            Role: <span>{{ $item.role }}</span>
+          </div>
+          {{- if $item.location }}
+          <div class="location">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>{{ $item.location }}</span>
+          </div>
+          {{- end }}
+        </div>
+
+        {{- if $item.description }}
+        <div class="description markdown">
+          {{ $item.description | markdownify | safeHTML }}
+        </div>
+        {{- end }}
+
+        {{- if $item.skills }}
+        <div class="skills markdown">
+          Skills: {{ $item.skills | markdownify | safeHTML }}
+        </div>
+        {{- end }}
+        
+        {{- end }}
+
+      </div>
+      {{- end }}
+    </div>
+    {{- end }}
   </div>
 </section>
 {{- end }}
+
+
+
+
+
