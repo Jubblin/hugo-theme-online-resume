@@ -88,30 +88,6 @@ small {
       }
     }
 
-    .sub-section-title {
-      display: flex;
-      align-items: baseline;
-
-      font-size: $middle-font-size;
-      color: $theme-color;
-      margin-top: $spacing-unit / 1;
-      margin-bottom: $spacing-unit / 0;
-      padding-left: $spacing-unit / 4;
-      padding: $spacing-unit / 10 0;
-      border-bottom-color: rgba($theme-color, 0.25);
-      border-bottom-width: 1px;
-
-      i::after {
-        content: "\00a0";
-        font-family: initial;
-      }
-
-      h2 {
-        font-size: inherit;
-        margin-bottom: 0;
-      }
-    }
-
     .sub-section-content {
 
       .item {
